@@ -4,8 +4,8 @@
 <div class="container-fluid" style="background-color: #FFFFFF">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div  align="center" class="card border-0  jumbotron bg-light"  style=" border-radius: 50px">
-                <div align="center" style=" border-radius: 50px" class="card-header bg-light">
+            <div style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);border-radius: 50px;"  align="center" class="card border-0  jumbotron bg-light"  >
+                <div   align="center" style=" border-radius: 50px" class="card-header bg-light">
                     <img src="{{URL::to('/img/ent.png')}}" alt="sdwe">
                 </div>
 

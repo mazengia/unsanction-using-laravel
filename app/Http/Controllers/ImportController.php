@@ -32,11 +32,11 @@ class ImportController extends Controller
                    $data = DB::table('tbl_customer')      // ->select(    )
 
                      ->select('id','Institution','Full_Name', 'Sex', 'Title', 'Position', 'Occupation', 'Relationship','Date_of_Birth','Place_of_Birth', 'Nationality', 'Passport_No', 'National_ID_No', 'Driving_License', 'Account_No', 'TN_No', 'City', 'Sub_City', 'Wereda', 'House_No', 'RA_P_O_Box', 'RA_Phone_No', 'RA_Email_Address','Place', 'A_Phone_No', 'A_P_O_Box','A_Email_Address','Year_of_Appointee','Other_Infn' )
+                     ->get();
                      //->skip(1)    //skips first row
                      //->take( 12)  //take 12 row by lefting the first row
-                     ->skip(1)
-                     ->limit(PHP_INT_MAX)
-                     ->get();    //->limit(10)    display only 10 row
+                     //->skip(1) ->limit(PHP_INT_MAX) ->get();  skip the first row then display other rows
+                      //->limit(10)    display only 10 row
                   }
                   return datatables()->of($data)
                    ->addIndexColumn()
@@ -69,7 +69,7 @@ class ImportController extends Controller
          public function export(){
                try {
 
-             $result= Excel::download(new unsanctionExport,'unsunctio_exported.xlsx')    ;
+             $result= Excel::download(new unsanctionExport(),'unsunctio_exported.xlsx')    ;
                  }
            catch (\Exception $e) {
                return back()->withError( $e->getMessage() );  //we can use $e->getMessage(); instead of string
