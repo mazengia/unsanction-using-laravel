@@ -5,11 +5,11 @@
   <title>Enat Bank SC</title>
      @include('nav.link')
  </head>
- <body>
+ <body  style="background-color: #FFFFFF">
      @include('nav.nav')
    <div class="container-fluid">
-   <h3 align="center"><i>Register Your Excel File InTo Systems Database</i> </h3>
-    <br />
+   <h3 align="center"> Add Your Excel File Into Systems  </h3>
+    
 
 
    @if($message = Session::get('success'))
@@ -50,68 +50,61 @@
         <input type="submit" name="upload" class="btn btn-primary" value="Upload"></i>
        </td>
       </tr>
-
      </table>
     </div>
    </form>
-
-
     <br>
-
    <div class="panel panel-default">
     <div class="panel-heading">
      <h3 class="panel-title"  style=" text-align: center" ><i>Customer Data</i></h3>
     </div>
-
     <div class="panel-body">
      <div  style=" text-align: center"  class="table-responsive">
          <a href="{{'unexport'}}">Download Excel File</a>
       <table class="table table-bordered table-striped "  id="customer_data" >
             <thead>
-                 <tr>
+                <tr>
 
-              <td rowspan="3">Number</td>
-              <td rowspan="3">Full Name</td>
-              <td rowspan="3" >Sex </td>
-              <td rowspan="3">title</td>
-              <td colspan="2">Designation</td>
-              <td rowspan="3">Relationship / Close Associates</td>
-              <td rowspan="3">Date of Birth</td>
-              <td rowspan="3"> Place of Birth</td>
-              <td rowspan="3">Nationality </td>
-              <td rowspan="3">Passport No </td>
-              <td rowspan="3">National ID No </td>
-              <td rowspan="3">Driving License </td>
-              <td rowspan="3"> Account No</td>
-              <td rowspan="3"> TN No</td>
-              <td colspan="7">Residence Address</td>
-              <td colspan="4"> </td>
-              <td rowspan="3"> Year of Appointee</td>
-              <td rowspan="3"> Other Infn</td>
-              <td rowspan="3"> Action</td>
-          </tr>
-          <tr>
+                  <td rowspan="3">Number</td>
+                  <td rowspan="3">Institution</td>
+                  <td rowspan="3">Full Name</td>
+                  <td rowspan="3" >Sex </td>
+                  <td rowspan="3">title</td>
+                  <td colspan="2">Designation</td>
+                  <td rowspan="3">Relationship / Close Associates</td>
+                  <td rowspan="3">Date of Birth</td>
+                  <td rowspan="3"> Place of Birth</td>
+                  <td rowspan="3">Nationality </td>
+                  <td rowspan="3">Passport No </td>
+                  <td rowspan="3">National ID No </td>
+                  <td rowspan="3">Driving License </td>
+                  <td rowspan="3"> Account No</td>
+                  <td rowspan="3"> TN No</td>
+                  <td colspan="7">Residence Address</td>
+                  <td colspan="4"> </td>
+                  <td rowspan="3"> Year of Appointee</td>
+                  <td rowspan="3"> Other Infn</td>
+                  <td rowspan="3"> Action</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">position </td>
+                    <td  rowspan="2">Occupation/ Source of Income </td>
+                    <td rowspan="2">City</td>
+                    <td rowspan="2">Sub City </td>
+                    <td  rowspan="2">Wereda</td>
+                    <td rowspan="2">House No </td>
+                    <td  rowspan="2">P.O.Box </td>
+                    <td  rowspan="2">	Phone No </td>
+                    <td  rowspan="2">Email Address </td>
+                    <td  rowspan="2">Place </td>
+                    <td colspan="3"> Address</td>
+                </tr>
+                <tr>
 
-
-
-                <td rowspan="2">position </td>
-                <td  rowspan="2">Occupation/ Source of Income </td>
-                <td rowspan="2">City</td>
-                <td rowspan="2">Sub City </td>
-                <td  rowspan="2">Wereda</td>
-                <td rowspan="2">House No </td>
-                <td  rowspan="2">P.O.Box </td>
-                <td  rowspan="2">	Phone No </td>
-                <td  rowspan="2">Email Address </td>
-                <td  rowspan="2">Place </td>
-                <td colspan="3"> Address</td>
-          </tr>
-          <tr>
-
-          <td>Phone No</td>
-          <td>P.O.Box</td>
-          <td>Email Address </td>
-          </tr>
+                    <td>Phone No</td>
+                    <td>P.O.Box</td>
+                    <td>Email Address </td>
+                </tr>
             </thead>
       </table>
      </div>
@@ -140,6 +133,7 @@ $(document).ready(function(){
             columns: [
 
                    { data: 'id', name: 'id', },
+                  { data: 'Institution', name: 'Institution', },
                   { data: 'Full_Name', name: 'Full_Name', },
                   { data: 'Sex', name: 'Sex' },
                   { data: 'Title', name: 'Title' },

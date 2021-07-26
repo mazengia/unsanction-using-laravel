@@ -25,40 +25,41 @@ class UsersImport implements ToModel, WithStartRow ,WithValidation
     {
         if(isset($row[0])||isset($row[1])||isset($row[2])||isset($row[3])||isset($row[4])||isset($row[5])||isset($row[6])||isset($row[7])||isset($row[8])||isset($row[9])||isset($row[10])||isset($row[11])||isset($row[12])||isset($row[13])||isset($row[14])||isset($row[15])||isset($row[16])||isset($row[17])||isset($row[18])||isset($row[19])||isset($row[20])||isset($row[21])||isset($row[22])||isset($row[23])||isset($row[24])||isset($row[25])||isset($row[26])||isset($row[27])){
         return new inser_model([
-            'Full_Name'     => $row[0],
-            'Sex'    => $row[1],
-            'Title' => $row[2],
-            'Position'     => $row[3],
-            'Occupation'    => $row[4],
-            'Relationship' => $row[5],
-            'Date_of_Birth'   => $row[6],
-            'Place_of_Birth'     => $row[7],
-            'Nationality'    => $row[8],
-            'Passport_No'     => $row[9],
-            'National_ID_No'    => $row[10],
-            'Driving_License' => $row[11],
-            'Account_No'   => $row[12],
-            'TN_No'   => $row[13],
-            'City'     => $row[14],
-            'Sub_City'    => $row[15],
-            'Wereda' => $row[16],
-            'House_No'     => $row[17],
-            'RA_P_O_Box'    => $row[18],
-            'RA_Phone_No' => $row[19],
-            'RA_Email_Address'   => $row[20],
-            'Place'   => $row[21],
-            'A_Phone_No' => $row[22],
-            'A_P_O_Box'   => $row[23],
-            'A_Email_Address'   => $row[24],
-            'Year_of_Appointee'   => $row[25],
-            'Other_Infn'   => $row[26],
+            'Institution'=> $row[0],
+            'Full_Name'     => $row[1],
+            'Sex'    => $row[2],
+            'Title' => $row[3],
+            'Position'     => $row[4],
+            'Occupation'    => $row[5],
+            'Relationship' => $row[6],
+            'Date_of_Birth'   => $row[7],
+            'Place_of_Birth'     => $row[8],
+            'Nationality'    => $row[9],
+            'Passport_No'     => $row[10],
+            'National_ID_No'    => $row[11],
+            'Driving_License' => $row[12],
+            'Account_No'   => $row[13],
+            'TN_No'   => $row[14],
+            'City'     => $row[15],
+            'Sub_City'    => $row[16],
+            'Wereda' => $row[17],
+            'House_No'     => $row[18],
+            'RA_P_O_Box'    => $row[19],
+            'RA_Phone_No' => $row[20],
+            'RA_Email_Address'   => $row[21],
+            'Place'   => $row[22],
+            'A_Phone_No' => $row[23],
+            'A_P_O_Box'   => $row[24],
+            'A_Email_Address'   => $row[25],
+            'Year_of_Appointee'   => $row[26],
+            'Other_Infn'   => $row[27],
             ]);
               }
 
     }
         public function startRow(): int
         {
-                return 5;     //this method and ,WithStartRow which is add on above class used to left over the first (let n=6) n-1 rows of excel during importing into database
+                return 2;     //this method and ,WithStartRow which is add on above class used to start from 2 rows of excel during importing into database
         }
 
           public function rules(): array

@@ -5,7 +5,7 @@
         <title>Enat Bank SC</title>
         @include('nav.link')
      </head>
- <body>
+ <body  style="background-color: #FFFFFF">
     @include('nav.nav')
     <div class=" row">
         <div class="col-2"></div>
@@ -19,7 +19,7 @@
                         <i>Detail Information</i><br><br>
                     </h3>
                     <div   class="table-responsive">
-                        <table class="table"  id="customer_data" >
+                        <table class=" table"  >
                             @foreach($data as $row)
                                @if($message = Session::get('success'))
                                    <div class="alert alert-success alert-block">
@@ -27,10 +27,13 @@
                                        <strong>{{ $message }}</strong>
                                    </div>
                                @endif
-                                <form action="/custom/update" method="post" class="form-control">
+                                <form action="/custom/update" method="post" class="form-control">     
                                     <input type="" hidden="hidden" name="ptd" value="{{ $row->id }}" />
                                     <thead>
-
+                                        <tr>
+                                            <td>Institution</td>
+                                            <td><input name="Institution" value="{{ $row->Institution }}"   class="form-control border-top-0   border-info" type="text" /></td>
+                                        </tr>
                                         <tr>
                                             <td>Full Name</td>
                                             <td><input name="Full_Name" value="{{ $row->Full_Name }}"   class="form-control border-top-0   border-info" type="text" /></td>
@@ -154,7 +157,3 @@
         <div class="col-2"></div>
     </body>
 </html>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-

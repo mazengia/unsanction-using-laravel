@@ -10,6 +10,7 @@ class inser_model extends Model
    protected $table = 'tbl_customer';
     public $timestamps = true;
     protected $fillable = [
+            'Institution',
             'Full_Name'  ,
             'Sex'     ,
             'Title' ,

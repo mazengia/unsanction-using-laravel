@@ -15,6 +15,7 @@ class TblCustomer extends Migration
     {
             Schema::create('tbl_customer', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('Institution')->nullable()->default('NULL');
             $table->string('Full_Name')->nullable()->default('NULL');
             $table->string('Sex')->nullable()->default('NULL');
             $table->string('Title')->nullable()->default('NULL');
