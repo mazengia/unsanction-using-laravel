@@ -8,66 +8,53 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use DB;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
+
 
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/import_excel'; 
+    protected $redirectTo = RouteServiceProvider::HOME;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'id' => ['required', 'string',   'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
-     */
-    protected function create(array $data)
+
+    protected function create(array $data )
     {
-        return User::create([
+         try {
+          $uresult=User::create([
             'name' => $data['name'],
-            'email' => $data['email'],
+            'id' => $data['id'],
             'password' => Hash::make($data['password']),
-        ]);
+            ]);
+            $values = array('role_id' => $data['role'],'user_id' => $data['id']);
+            if($uresult){
+               $urresult=DB::table('role_user')->insert($values);
+               if($urresult){
+                  return back()->with('success', 'Data Inserted successfully.');
+               }
+            }
+              else{
+                    return back()->with('Error', 'Data is not inserted please try again.');  
+              }
+          }catch (\Exception $e) {
+               return back()->with('Error',' Your Data Is already exist' );  //we can use $e->getMessage(); instead of string
+           }
+
     }
 }

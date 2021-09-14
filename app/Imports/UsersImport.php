@@ -59,7 +59,7 @@ class UsersImport implements ToModel, WithStartRow ,WithValidation
     }
         public function startRow(): int
         {
-                return 3;     //this method and ,WithStartRow which is add on above class used to start from 2 rows of excel during importing into database
+                return 5;     //this method and ,WithStartRow which is add on above class used to start from 2 rows of excel during importing into database
         }
 
           public function rules(): array

@@ -12,18 +12,23 @@ class CreateUsersTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {                                     //Schema::create('users', function (Blueprint $table) {
         Schema::create('users', function (Blueprint $table) {
-           $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('id')->primary();
+            $table->string('name')->unique();
+            //$table->string('role')->;
+           // $table->string('email')->unique();
+           // $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');          
             $table->timestamps();
         });
     }
-
+        public function roles()
+            {
+                return $this
+                    ->belongsToMany('App\Role')
+                    ->withTimestamps();
+            }
     /**
      * Reverse the migrations.
      *

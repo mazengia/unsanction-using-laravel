@@ -23,10 +23,18 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect('/import_excel');
+            $user = Auth::user();
+            if ($user->PRIVILEGE == 'user') {
+                return redirect()->route('/import_excel');
             }
+            if ($user->PRIVILEGE == 'risk') {
+                return redirect('/risk');
+            }
+            return redirect('/');
         }
 
-        return $next($request);
     }
+    return $next($request);
+}
+
 }

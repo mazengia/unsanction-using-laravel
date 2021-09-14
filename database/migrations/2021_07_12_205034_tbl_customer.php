@@ -26,26 +26,26 @@ class TblCustomer extends Migration
 
             $table->string('Place_of_Birth')->nullable()->default('NULL');
             $table->string('Nationality')->nullable()->default('NULL');
-            $table->string('Passport_No')->nullable()->default('NULL')->unique();
-            $table->string('National_ID_No')->nullable()->default('NULL')->unique();
-            $table->string('Driving_License')->nullable()->default('NULL')->unique();
-            $table->string('Account_No')->nullable()->default('NULL')->unique();
-            $table->string('TN_No')->nullable()->default('NULL')->unique();
+            $table->string('Passport_No')->nullable()->default('NULL') ;
+            $table->string('National_ID_No')->nullable()->default('NULL') ;
+            $table->string('Driving_License')->nullable()->default('NULL') ;
+            $table->string('Account_No')->nullable()->default('NULL') ;
+            $table->string('TN_No')->nullable()->default('NULL') ;
 
 
             $table->string('City')->nullable()->default('NULL');
             $table->string('Sub_City')->nullable()->default('NULL');
             $table->string('Wereda')->nullable()->default('NULL');
-            $table->string('House_No')->nullable()->default('NULL')->unique();
-            $table->string('RA_P_O_Box')->nullable()->default('NULL')->unique();
-            $table->string('RA_Phone_No')->nullable()->default('NULL')->unique();
-            $table->string('RA_Email_Address')->nullable()->default('NULL')->unique();
+            $table->string('House_No')->nullable()->default('NULL') ;
+            $table->string('RA_P_O_Box')->nullable()->default('NULL') ;
+            $table->string('RA_Phone_No')->nullable()->default('NULL') ;
+            $table->string('RA_Email_Address')->nullable()->default('NULL') ;
             $table->string('Place')->nullable()->default('NULL');
 
 
             $table->string('A_Phone_No')->nullable()->default('NULL') ;
-            $table->string('A_P_O_Box')->nullable()->default('NULL')->unique();
-            $table->string('A_Email_Address')->nullable()->default('NULL')->unique();
+            $table->string('A_P_O_Box')->nullable()->default('NULL') ;
+            $table->string('A_Email_Address')->nullable()->default('NULL') ;
             $table->string('Year_of_Appointee')->nullable()->default('NULL');
             $table->string('Other_Infn')->nullable()->default('NULL');
 
